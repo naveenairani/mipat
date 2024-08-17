@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles11.css') }}">
+    <style>
+        .result-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .result-container img {
+            max-width: 80%;
+            height: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #f8f8f8;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button-container a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Object Detection Result</h1>
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Result Image">
+        <div class="button-container">
+            <a href="{{ url_for('yolo') }}">Detect Another Image</a>
+            <a href="{{ url_for('index') }}">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

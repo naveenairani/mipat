@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidney Stone Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Kidney Stone Detection</h1>
+    <form action="{{ url_for('newpage6') }}" method="post" enctype="multipart/form-data">
+        <label for="image">Upload a Kidney Image:</label>
+        <input type="file" id="image" name="image" accept="image/*">
+        <button type="submit">Upload</button>
+    </form>
+    
+    {% if image_url %}
+        <h2>Uploaded Image</h2>
+        <img src="{{ image_url }}" alt="Uploaded Image" width="500">
+    {% endif %}
+    
+    {% if detected_image_url %}
+        <h2>Stone Detected Image</h2>
+        <img src="{{ detected_image_url }}" alt="Detected Image" width="500">
+    {% endif %}
+</body>
+</html>

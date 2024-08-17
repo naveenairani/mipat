@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grayscale Image to Color</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles11.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .upload-container {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+            background-color: #fff;
+            transition: border-color 0.3s ease;
+        }
+
+        .upload-container.dragover {
+            border-color: #000;
+        }
+
+        .images-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .images-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #f8f8f8;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container a:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Grayscale Image to Color</h1>
+    <div id="upload-container" class="upload-container">
+        Drag and drop an image here, or click to select an image
+        <form id="upload-form" action="{{ url_for('grayscale_to_color_route') }}" method="post" enctype="multipart/form-data" style="display: none;">
+            <input type="file" name="image" accept="image/*" required>
+            <input type="submit" value="Convert">
+        </form>
+    </div>
+    {% if error %}
+    <p class="error-message">{{ error }}</p>
+    {% endif %}
+    {% if success %}
+    <div class="images-container">
+        <div>
+            <h2>Original Image</h2>
+            <img src="{{ original_image_path }}" alt="Original Image">
+        </div>
+        <div>
+            <h2>Colorized Image</h2>
+            <img src="{{ image_path }}" alt="Colorized Image">
+        </div>
+    </div>
+    {% endif %}
+    <div class="button-container">
+        <a href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+
+    <script>
+        const uploadContainer = document.getElementById('upload-container');
+        const uploadForm = document.getElementById('upload-form');
+        const fileInput = uploadForm.querySelector('input[type="file"]');
+
+        uploadContainer.addEventListener('click', () => fileInput.click());
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                uploadForm.submit();
+            }
+        });
+
+        uploadContainer.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            uploadContainer.classList.add('dragover');
+        });
+
+        uploadContainer.addEventListener('dragleave', () => {
+            uploadContainer.classList.remove('dragover');
+        });
+
+        uploadContainer.addEventListener('drop', (event) => {
+            event.preventDefault();
+            uploadContainer.classList.remove('dragover');
+            const files = event.dataTransfer.files;
+            if (files.length > 0) {
+                fileInput.files = files;
+                uploadForm.submit();
+            }
+        });
+    </script>
+</body>
+</html>

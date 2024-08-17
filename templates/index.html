@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multipurpose Image Preprocessing and Analytical Toolkit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/script1.js') }}" defer></script>
+</head>
+<body>
+
+    <!-- Header design -->
+    <header class="header" id="mainHeader">
+        <a href="#" class="logo">Pixel Analysis</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#terms" class="nav-link">General Information</a>
+            <a href="#calculator" class="nav-link">Models</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Developer</a>
+        </nav>
+    </header>
+
+    <!-- Home section -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Welcome!</h1>
+            <h2>Multi Purpose Image Preprocessing and Analytical Toolkit</h2>
+            <h3>Using <span>COMPUTER VISION</span></h3>
+            <p>Unleashing the power of computer vision.</p>
+            <a class="btn" href="#calculator">Let's Start</a>
+         </div>
+        <div class="home-img">
+            <img src="{{ url_for('static', filename='images/home_image.jpg') }}" alt="Image">
+        </div>
+    </section>
+
+    <!-- General Information section -->
+    <section class="terms" id="terms">
+        <div class="terms-content">
+            <h2 class="heading">General <span>Information</span></h2>
+            <div class="scroll-bar">
+                <h3>Multi-Purpose Image Processing and Analysis Toolkit</h3>
+                <p>Our toolkit leverages advanced computer vision techniques to offer a range of image processing and analysis capabilities:</p>
+    
+                <h4>1. Black and White to Color Conversion</h4>
+                <p>This feature uses deep learning models to add color to black and white images. It analyzes the content and context of the image to predict and apply appropriate colors, bringing old photographs to life or enhancing grayscale images.</p>
+    
+                <h4>2. Object Detection</h4>
+                <p>Our object detection system employs state-of-the-art algorithms like YOLO (You Only Look Once) to identify and locate multiple objects within an image. It can recognize a wide range of objects, from everyday items to complex scenes, providing bounding boxes and confidence scores for each detected object.</p>
+    
+                <h4>3. Brain Tumor Detection</h4>
+                <p>This medical imaging tool uses advanced image segmentation and classification techniques to analyze brain MRI scans. It can identify potential tumor regions, helping medical professionals in early detection and diagnosis of brain tumors. The system provides visual overlays to highlight areas of concern.</p>
+    
+                <h4>4. Kidney Stone Detection</h4>
+                <p>Our kidney stone detection feature analyzes CT scans or ultrasound images of the kidney. It uses image processing algorithms to identify potential kidney stones, highlighting their location and estimating their size. This tool aids in quick and accurate diagnosis of kidney stones, facilitating timely medical intervention.</p>
+    
+                <h4>5. Lung Cancer Detection</h4>
+                <p>This tool analyzes chest CT scans to detect potential lung nodules that could indicate lung cancer. It uses deep learning models trained on large datasets of lung CT scans to identify suspicious areas, providing early detection capabilities that can significantly improve patient outcomes.</p>
+    
+                <h4>6. Retinal Image Analysis</h4>
+                <p>Our retinal image analysis system examines fundus photographs of the retina to detect various eye conditions. It can identify signs of diabetic retinopathy, age-related macular degeneration, and glaucoma. The system provides detailed reports on the condition of the retina, assisting ophthalmologists in diagnosis and treatment planning.</p>
+    
+                <p>These tools demonstrate the power of computer vision in various fields, from creative applications to critical medical diagnostics. By leveraging artificial intelligence and advanced image processing techniques, we aim to provide valuable insights and assist in both creative and analytical tasks involving visual data.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medical Analysis section -->
+    <section class="calculator" id="calculator">
+        <h2 class="heading">Medical Analysis</h2>
+        <div class="container">
+            <div class="box box-blue">
+                <div class="sub-box" onmouseover="playHoverSound()" style="background-image: url('{{ url_for('static', filename='images/image1.jpg') }}');">
+                    <h3>B/W to Color</h3>
+                    <button onclick="loadContent('{{ url_for('grayscale_to_color_route') }}')">Start</button>
+                </div>
+                <div class="sub-box" onmouseover="playHoverSound()" style="background-image: url('{{ url_for('static', filename='images/image2.jpg') }}');">
+                    <h3>Object Detection</h3>
+                    <button onclick="loadContent('{{ url_for('yolo') }}')">Start</button>
+                </div>
+                <div class="sub-box" onmouseover="playHoverSound()" style="background-image: url('{{ url_for('static', filename='images/image3.jpg') }}');">
+                    <h3>Working under process</h3>
+                    <button onclick="loadContent('{{ url_for('newpage3') }}')">Start</button>
+                </div>
+                <div class="sub-box" onmouseover="playHoverSound()" style="background-image: url('{{ url_for('static', filename='images/image4.jpg') }}');">
+                    <h3>Working under process</h3>
+                    <button onclick="loadContent('{{ url_for('newpage4') }}')">Start</button>
+                </div>
+            </div>
+            <div class="box box-green">
+                <div class="sub-box" onmouseover="playHoverSound()" style="background-image: url('{{ url_for('static', filename='images/brainpic.png') }}');">
+                    <h3>BRAIN TUMOR DETECTION SYSTEM</h3>
+                    <button onclick="window.location.href='{{ url_for('newpage5') }}'">Start Brain Tumor Detection</button>
+                </div>
+                <div class="sub-box" onmouseover="playHoverSound()" style="background-image: url('{{ url_for('static', filename='images/Lungs.png') }}');">
+                    <h3>KIDNEY STONE DETECTION</h3>
+                    <button onclick="loadContent('{{ url_for('newpage6') }}')">Start</button>
+                </div>
+                <div class="sub-box" onmouseover="playHoverSound()" style="background-image: url('{{ url_for('static', filename='images/kkidney.png') }}');">
+                    <h3>LUNG CANCER DETECTION</h3>
+                    <button onclick="loadContent('{{ url_for('newpage7') }}')">Start</button>
+                </div>
+                <div class="sub-box" onmouseover="playHoverSound()" style="background-image: url('{{ url_for('static', filename='images/retinal.png') }}');">
+                    <h3>RETINAL IMAGE ANALYSIS</h3>
+                    <button onclick="loadContent('{{ url_for('newpage8') }}')">Start</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About section -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="{{ url_for('static', filename='images/about_image.jpg') }}" alt="About Image">
+        </div>
+        <div class="about-content">
+            <h1 class="heading">About Us</h1>
+            <h2>Computer Vision System</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis lorem in nunc gravida, id sollicitudin turpis commodo.</p>
+        </div>
+    </section>
+    
+    <!-- Contact section -->
+    <section class="contact" id="contact">
+        <!-- Contact form or details can be added here -->
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-text">
+            <p>Copyright © 2023 AV. All rights reserved</p>    
+        </div>
+        <div class="footer-iconTop">
+            <p>Version 5.3.2</p>
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
+</body>
+</html>

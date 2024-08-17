@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Result</title>
+  </head>
+  <body>
+    <h1>Prediction Result</h1>
+    {% if prediction > 0.5 %}
+      <p style="color: red;">TUMOR DETECTED</p>
+    {% else %}
+      <p style="color: green;">NO TUMOR DETECTED</p>
+    {% endif %}
+    <p>Prediction Confidence: {{ prediction * 100 }}%</p>
+    <img src="{{ image_url }}" alt="Processed Image">
+    <a href="/">Go back</a>
+  </body>
+</html>

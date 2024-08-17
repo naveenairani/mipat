@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.upload-container {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.upload-container.dragover {
+    border-color: #000;
+}
+
+.image-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image-container img {
+    max-width: 80%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #f8f8f8;
+}
+
+.caption-container {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button, a {
+    padding: 10px 20px;
+    margin: 10px;
+    background: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover, a:hover {
+    background: #0056b3;
+}
